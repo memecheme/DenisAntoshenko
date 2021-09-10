@@ -1,0 +1,19 @@
+<?php    
+    echo '<h1>Задача 2. Get current product, category.</h1>';
+
+    echo '<h2>Product</h2>';
+    if ($currentProduct = $block->getProductById(4)) {
+        echo 'ID: ' . $currentProduct->getId() . '<br>';
+        echo 'Name: ' . $currentProduct->getName() . '<br>';
+        echo 'Url: ' . $currentProduct->getUrl() . '<br>';
+    }
+
+    echo '<br>';
+
+    echo '<h2>Category</h2>';
+    if ($currentCategory = $block->getCurrentCategory()) {
+        echo 'ID: ' . $currentCategory->getId() . '<br>';
+        echo 'Name: ' . $currentCategory->getName() . '<br>';
+        echo 'Url: ' . $currentCategory->getUrl() . '<br>';
+    }
+?>
