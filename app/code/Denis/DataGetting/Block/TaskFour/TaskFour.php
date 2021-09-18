@@ -3,7 +3,6 @@ namespace Denis\DataGetting\Block\TaskFour;
 
 class TaskFour extends \Magento\Framework\View\Element\Template
 {
-    protected $_productIds;
     protected $productRepository;
 
     public function __construct(
