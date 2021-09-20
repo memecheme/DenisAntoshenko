@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>
+            Test Task Two
+        </title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Denis\DataGetting\Block\TestTaskTwo\TestTaskTwo" 
+                   name="datagetting_testtasktwo_testtasktwo" 
+                   template="Denis_DataGetting::TestTaskTwo.phtml" 
+            />
+            <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+            <referenceBlock name="wishlist_sidebar" remove="true"/>
+        </referenceContainer>
+    </body>
+</page>
