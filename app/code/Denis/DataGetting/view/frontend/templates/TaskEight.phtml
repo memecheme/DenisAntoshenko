@@ -1,0 +1,9 @@
+<?php
+    echo '<h1>Задача 8. Get Product Collection Filter By Visibility.</h1>';
+
+    $collection = $block->getProductCollection();
+    echo '<h3>Visibility: Catalog, Search</h3>';
+    foreach ($collection as $product) {
+        echo $product->getProductUrl() . '<br>';
+    }
+?>
