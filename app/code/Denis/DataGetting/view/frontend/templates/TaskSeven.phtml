@@ -1,9 +1,0 @@
-<?php
-    echo '<h1>Задача 7. Get Product Collection by Category.</h1>';
-
-    $categoryProducts = $block->getProductCollectionByCategories(6);
-    echo '<h3>Category ID: 6 (Default Category -> Gear -> Watches)</h3>';
-    foreach ($categoryProducts as $product) {
-        echo $product->getName() . '<br>';
-    }
-?>

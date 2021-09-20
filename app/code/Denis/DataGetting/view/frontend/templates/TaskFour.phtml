@@ -1,8 +1,0 @@
-<?php
-    echo '<h1>Задача 4. Get List Products from Catalog Rule Condition.</h1>';
-
-    $product_ids = $block->getCatalogPriceRuleProductIds();
-    foreach ($product_ids as $product_id) {
-        echo $block->getProductById($product_id)->getName() . '<br>';
-    }
-?>
