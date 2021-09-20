@@ -1,0 +1,51 @@
+<?php
+    echo '<h1>Тестовые задания 1</h1>';
+    $product_id = 10; $date_from = '2021-08-01'; $date_to = '2021-09-01';
+
+    echo '<h3>1.1 Получить информацию о наличие продукта Qty(), MinQty(), MinSaleQty(), MaxSaleQty(), IsInStock()</h3>';
+    $_productStock = $block->getStockItem($product_id);
+    echo 'Product ID: ' . $product_id . '<br>';
+    echo 'Qty: ' . $_productStock->getQty() . '<br>';
+    echo 'MinQty: ' . $_productStock->getMinQty() . '<br>';
+    echo 'MinSaleQty: ' . $_productStock->getMinSaleQty() . '<br>';
+    echo 'MaxSaleQty: ' . $_productStock->getMaxSaleQty() . '<br>';
+    echo 'IsInStock: ' . $_productStock->getIsInStock() . '<br>';
+
+    echo '<h3>1.2 Получить информацию об изображения продукта (Image) getWidth(), getHeight(), getUrl()</h3>';
+    $_productImage = $block->getProductById($product_id);
+    echo 'Product ID: ' . $product_id . '<br>';
+    echo 'Width: ' . $block->getImageOriginalWidth($_productImage, 'product_small_image') . '<br>'; 
+    echo 'Height: ' . $block->getImageOriginalHeight($_productImage, 'product_small_image') . '<br>';
+    echo 'Url: ' . $block->getImageOriginalUrl($_productImage, 'product_small_image') . '<br>';
+
+    echo '<h3>1.3 Получить коллекцию всех покупателей (Customers)</h3>';
+    $_customerList = $block->getCustomerCollection();
+    foreach ($_customerList as $customer) {
+        echo 'ID: ' . $customer->getId() . ' / Name: '  . $customer->getName() . ' / Email: ' . $customer->getEmail() . '<br>';
+    }
+
+    echo '<h3>1.4 Получить коллекцию заказов (Orders) по любому выбранному фильтру (Date)</h3>';
+    $_orderList = $block->getOrderCollectionByDate($date_from, $date_to);
+    echo 'Date: ' . $date_from . ' - ' . $date_to . '<br>';
+    foreach ($_orderList as $order) {
+        echo 'ID: ' . $order->getId() . ' / Status: ' . $order->getStatus() . '<br>';
+    }
+
+    echo '<h3>1.5 Получить все группы покупателей (Group Customers)</h3>';
+    $_customerGroupList = $block->getCustomerGroups();
+    foreach ($_customerGroupList as $group) {
+        echo 'ID: ' . $group->getId() . ' / Group: ' . $group->getCode() . ' / Tax Class: ' . $group->getTaxClassId() . '<br>';
+    }
+
+    echo '<h3>1.6 Получить список методов оплаты (Payment Methods)</h3>';
+    $_paymentMethodList = $block->getPaymentMethods();
+    foreach ($_paymentMethodList as $payment) {
+        echo $payment->getTitle() . '<br>';
+    }
+
+    echo '<h3>1.7 Получить список активных методов доставки (Shipping Methods)</h3>';
+    $_shippingMethodList = $block->getActiveShippingMethods();
+    foreach ($_shippingMethodList as $shipping) {
+        echo $shipping['label'] . '<br>';  
+    }
+?>
