@@ -1,0 +1,8 @@
+<?php
+    if ($currentProduct = $block->getCurrentProduct()) {
+        echo '<h2>Product</h2>';
+        echo 'ID: ' . $currentProduct->getId() . '<br>';
+        echo 'Name: ' . $currentProduct->getName() . '<br>';
+        echo 'Url: ' . $currentProduct->getProductUrl() . '<br>';
+    }     
+?>

@@ -1,0 +1,18 @@
+<?php
+    echo '<h1>Задача 3. Get Categories from specific Product.</h1>';
+
+    $infoOutput = '';
+    $product_id = 4;
+    $product = $block->getProductById($product_id);
+ 
+    $category_id = $product->getCategoryIds();
+    $categories = $block->getCategoryCollection()->addAttributeToFilter('entity_id', $category_id);
+         
+    echo 'ID: ' . $product->getId() . '<br>';
+    echo 'Name: ' . $product->getName() . '<br>';
+    echo 'Category: ';
+    foreach ($categories as $category) {
+        $infoOutput .= $category->getName() . ' -> ';
+    }
+    echo rtrim($infoOutput, " -> ");
+?>
