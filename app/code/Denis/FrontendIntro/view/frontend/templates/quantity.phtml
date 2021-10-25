@@ -1,0 +1,7 @@
+<?php
+    if ($currentProduct = $block->getCurrentProduct()) {
+        $idProduct = $currentProduct->getId();
+        $stockProduct = $block->getStockItem($idProduct);
+        echo 'Quantity: ' . $stockProduct->getQty() . '<br>';
+    }     
+?>
