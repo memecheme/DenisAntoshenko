@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <body>
-        <!-- 2.4.2 Переместить “Add to wish” и “Add to compare” непосредственно под элемент 4, а если получится, то и продублировать и под элементом 3, разместив там в столбик. -->
-        <!-- 2.7 Расширить блок 1 и дописать в него текст “Buy me!”. Этот текст расположить непосредственно под названием в блоке 1. -->
-        <referenceBlock name="category.products.list" 
-            template="Denis_FrontendIntro::list.phtml"/>
-    </body>
-</page>

@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <body>
-        <!-- 2.1 Сделать написание текста в блоке 2 курсивным шрифтом -->
-        <referenceBlock name="page.main.title" 
-            template="Denis_FrontendIntro::title.phtml"/>
-    </body>
-</page>
