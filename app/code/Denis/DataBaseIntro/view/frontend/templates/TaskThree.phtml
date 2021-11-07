@@ -1,0 +1,45 @@
+<?php
+    echo '<h1>3.1 Получить коллекцию по созданной таблице и вывести ее в полном объеме</h1>';
+
+    echo '<table border="1">';
+    echo '<tr>';
+        echo '<th>#</th>';
+        echo '<th>Название склада</th>';
+        echo '<th>Адрес склада</th>';
+        echo '<th>ID категории</th>';
+        echo '<th>ID продукта</th>';
+        echo '<th>Количество продукта</th>';
+        echo '<th>Дата появления</th>';
+    echo '</tr>';
+    
+    $collection = $block->getFullTable();
+    foreach($collection as $item) {
+        echo '<tr>';
+            echo '<td>' . $item->getData('id') . '</td>';
+            echo '<td>' . $item->getData('name_war') . '</td>';
+            echo '<td>' . $item->getData('addr_war') . '</td>';
+            echo '<td>' . $item->getData('id_cat') . '</td>';
+            echo '<td>' . $item->getData('id_prod') . '</td>';
+            echo '<td>' . $item->getData('kol_prod') . '</td>';
+            echo '<td>' . $item->getData('data_prod') . '</td>';
+        echo '</tr>';
+    }
+    echo '</table>';
+
+    echo '<br>';
+
+    echo '<h1>3.2 Получить имена продуктов с указанного склада (Warehouse2)</h1>';
+
+    echo '<table border="1">';
+    echo '<tr>';
+        echo '<th>Имя продукта</th>';
+    echo '</tr>';
+
+    $collection = $block->getProductFromSpecWarehouse('Warehouse2');
+    foreach($collection as $item) {
+        echo '<tr>';
+            echo '<td>' . $block->getProductById($item)->getName() . '</td>';
+        echo '</tr>';
+    }
+    echo '</table>';
+?>

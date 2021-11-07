@@ -1,0 +1,30 @@
+<?php
+    echo '<h1>4. Для продуктов из заданного списка категорий (23) вывести список складов, где имеются эти продукты (количество > 0), а также
+    изображение продукта, его название, SKU и стоимость. Сделать для этого задания отдельную кастомную страницу, подключить
+    модели продукта и категории.</h1>';
+
+    echo '<table border="1">';
+    echo '<tr>';
+        echo '<th>Название склада</th>';
+        echo '<th>Изображение продукта</th>';
+        echo '<th>Имя продукта</th>';
+        echo '<th>SKU продукта</th>';
+        echo '<th>Стоимость продукта</th>';
+    echo '</tr>';
+    
+    $collection = $block->getProductFromSpecCategory(23);
+    foreach($collection as $item => $massiv) {
+        echo '<tr>';
+        foreach($massiv  as  $key => $value) {
+                if($key == 0) echo '<td>' . $value . '</td>';
+                else {
+                    echo '<td><img src="' . $block->getProductImage($value) . '" alt="product-image" height="100" width="100"/></td>';
+                    echo '<td>' . $block->getProductById($value)->getName() . '</td>';
+                    echo '<td>' . $block->getProductById($value)->getSku() . '</td>';
+                    echo '<td>' . $block->getProductById($value)->getPrice() . '</td>';
+                }
+        }
+        echo '</tr>';
+    }
+    echo '</table>';
+?>

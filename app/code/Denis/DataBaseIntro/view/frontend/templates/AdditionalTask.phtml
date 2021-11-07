@@ -1,0 +1,5 @@
+<?php
+    if ($currentProduct = $block->getCurrentProduct()) {
+        echo $block->getInfoFromCurrentProduct($currentProduct->getId());
+    }
+?>
