@@ -1,0 +1,57 @@
+<?php
+    echo '<h2>Все продажи</h2>';
+    echo '<table border="1">';
+    echo '<tr>';
+        echo '<th>#</th>';
+        echo '<th>Название</th>';
+        echo '<th>Количество</th>';
+        echo '<th>Дата</th>';
+        echo '<th>Бонус</th>';
+        echo '<th>Цена</th>';
+    echo '</tr>'; 
+    $collection = $block->getSales();
+    foreach($collection as $item) {
+        echo '<tr>';
+            echo '<td>' . $item->getData('stock_number') . '</td>';
+            echo '<td>' . $item->getData('name_sold_product') . '</td>';
+            echo '<td>' . $item->getData('amount_sold_product') . '</td>';
+            echo '<td>' . $item->getData('sale_date') . '</td>';
+            echo '<td>' . $item->getData('bonus') . '</td>';
+            echo '<td>' . $item->getData('price_sold_product') . '</td>';
+        echo '</tr>';
+    }
+    echo '</table>';
+
+    echo '<h2>Вывести продажи по определенному названию товара (там, где таких продаж несколько) и посчитать стоимость данной продажи:</h2>';
+    echo '- если продажа совершена в текущий день, то Стоимость за ед * Количество * (1-Бонус) <br>';
+    echo '- если продажа совершена раньше, то Бонус не использовать';
+    echo '<table border="1">';
+    echo '<tr>';
+        echo '<th>#</th>';
+        echo '<th>Название</th>';
+        echo '<th>Количество</th>';
+        echo '<th>Дата</th>';
+        echo '<th>Бонус</th>';
+        echo '<th>Цена</th>';
+        echo '<th>Стоимость</th>';
+    echo '</tr>'; 
+    $colllection = $block->getSalesByProduct('Apple');
+    foreach($colllection as $item) {
+        if($item->getData('sale_date') == date('Y-m-d', time())) 
+            $value = $item->getData('amount_sold_product') * 
+            $item->getData('price_sold_product') *
+            (1 - $item->getData('bonus'));
+        else $value = $item->getData('amount_sold_product') * 
+        $item->getData('price_sold_product');
+            echo '<tr>';
+                echo '<td>' . $item->getData('stock_number') . '</td>';
+                echo '<td>' . $item->getData('name_sold_product') . '</td>';
+                echo '<td>' . $item->getData('amount_sold_product') . '</td>';
+                echo '<td>' . $item->getData('sale_date') . '</td>';
+                echo '<td>' . $item->getData('bonus') . '</td>';
+                echo '<td>' . $item->getData('price_sold_product') . '</td>';
+                echo '<td>' . $value . '</td>';
+            echo '</tr>';
+    }
+    echo '</table>';
+?>

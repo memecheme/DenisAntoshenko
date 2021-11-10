@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sales" resource="default" engine="innodb" >
+        <column xsi:type="int" name="stock_number" padding="10" identity="true" 
+                unsigned="true" nullable="false" comment="ID"/>
+        <column xsi:type="varchar" name="name_sold_product" length="255" 
+                nullable="false" comment="Name"/>
+        <column xsi:type="int" name="amount_sold_product" padding="10" 
+                unsigned="true" nullable="false" comment="Amount"/>
+        <column xsi:type="date" name="sale_date" comment="Date"/>
+        <column xsi:type="decimal" name="discount" nullable="false" scale="2" 
+                precision="3" comment="Discount"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="stock_number"/>
+        </constraint>
+    </table>
+</schema>

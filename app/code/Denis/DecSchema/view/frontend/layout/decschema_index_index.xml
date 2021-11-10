@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>
+            Declarative Schema
+        </title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Denis\DecSchema\Block\Index" 
+                   name="decschema_index_index" 
+                   template="Denis_DecSchema::Index.phtml" 
+            />
+        </referenceContainer>
+    </body>
+</page>

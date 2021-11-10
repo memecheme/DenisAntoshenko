@@ -1,0 +1,14 @@
+{
+    "sales": {
+        "column": {
+            "stock_number": true,
+            "name_sold_product": true,
+            "amount_sold_product": true,
+            "sale_date": true,
+            "discount": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
