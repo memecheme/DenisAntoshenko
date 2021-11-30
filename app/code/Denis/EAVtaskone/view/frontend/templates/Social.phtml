@@ -1,0 +1,7 @@
+<?php
+    $product_id = $block->getCurrentProduct()->getId();
+    if($block->isTheAttributeIncluded($product_id) && $block->isTheModuleEnabled()) {
+        echo 'Скидка на социальный продукт: ' . $block->getDiscountPercent() . '%';
+        echo '<br>Стоимость с учетом скидки: ' . $block->getDiscountPrice($product_id) . '$';
+    }
+?> 

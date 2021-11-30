@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Denis_EAVtaskone::social" title="Social"
+            module="Denis_EAVtaskone" sortOrder="51" 
+            resource="Denis_EAVtaskone::social"/>
+        <add id="Denis_EAVtaskone::social_configuration" title="Configuration" 
+            module="Denis_EAVtaskone" sortOrder="99" 
+            parent="Denis_EAVtaskone::social" 
+            action="adminhtml/system_config/edit/section/social" 
+            resource="Denis_EAVtaskone::social_configuration"/>
+    </menu>
+</config>
