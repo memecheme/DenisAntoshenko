@@ -1,0 +1,10 @@
+<?php
+$product_id = $block->getCurrentProduct()->getId();
+if ($block->isTheModuleEnabled() && $block->getAdditionalFreightCharges($product_id)) {
+    echo 'За перевозку ' .
+        $block->getProductAFOName($product_id) .
+        ' будет начислена дополнительная оплата ' .
+        $block->getAdditionalFreightCharges($product_id) .
+        '$';
+}
+?> 
