@@ -1,0 +1,7 @@
+<?php $product_id = $block->getCurrentProduct()->getId(); ?>
+<?php if ($block->isTheModuleEnabled() && $block->getAdditionalFreightCharges($product_id)):?>
+    <?= /* @noEscape */ $block->getMessage(
+        $block->getProductAFOName($product_id),
+        $block->getAdditionalFreightCharges($product_id)
+    ); ?>
+<?php endif; ?>
