@@ -16,7 +16,6 @@
 <?php endif; ?>
 <?php if ($block->getNearestDate($block->getNearestCatalogRuleDate(2, 3))):?>
     <?= /* @noEscape */ $block->escapeHtmlAttr(__('Remaining time: '));  ?>
-    <?= /* @noEscape */ $block->getNearestDate($block->getNearestCatalogRuleDate(2, 3)); echo '<br>';?>
 <?php endif; ?>
 <div id="getting-started"></div>
 <script type="text/javascript">
