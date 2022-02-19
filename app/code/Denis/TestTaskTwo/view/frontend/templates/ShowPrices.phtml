@@ -1,0 +1,17 @@
+<?php if ($block->getModuleStatus()):?>
+    <?php if ($block->getPriceStatus('baseprice_enable')):?>
+        <?= /* @noEscape */ $block->getBasePrice(); ?>
+    <?php endif; ?>
+    <?php if ($block->getPriceStatus('finalprice_enable')):?>
+        <?= /* @noEscape */ $block->getFinalPrice(); ?>
+    <?php endif; ?>
+    <?php if ($block->getPriceStatus('specialprice_enable')):?>
+        <?= /* @noEscape */ $block->getSpecialPrice(); ?>
+    <?php endif; ?>
+    <?php if ($block->getPriceStatus('tierprice_enable')):?>
+        <?= /* @noEscape */ $block->getTierPrice(); ?>
+    <?php endif; ?>
+    <?php if ($block->getPriceStatus('catalogruleprice_enable')):?>
+        <?= /* @noEscape */ $block->getCatalogRulePrice(); ?>
+    <?php endif; ?>
+<?php endif; ?>

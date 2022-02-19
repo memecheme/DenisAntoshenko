@@ -1,0 +1,36 @@
+<?php if ($block->getSpecialDate()):?>
+    <?= /* @noEscape */ $block->escapeHtmlAttr(__('Speical Price will end: ')); ?>
+    <?= /* @noEscape */ $block->getSpecialDate(); echo '<br>';?>
+<?php endif; ?>
+<?php if ($block->getRuleDate(2) && $block->getRuleDate(3)):?>
+    <?= /* @noEscape */ $block->escapeHtmlAttr(__('Early Catalog rule Price will end: ')); ?>
+    <?= /* @noEscape */ $block->getNearestCatalogRuleDate(2, 3); echo '<br>';?>
+<?php endif; ?>
+<?php if ($block->getRuleDate(2)):?>
+    <?= /* @noEscape */ $block->escapeHtmlAttr(__('1 Catalog rule Price will end: ')); ?>
+    <?= /* @noEscape */ $block->getRuleDate(2); echo '<br>';?>
+<?php endif; ?>
+<?php if ($block->getRuleDate(3)):?>
+    <?= /* @noEscape */ $block->escapeHtmlAttr(__('2 Catalog Rule Price will end: ')); ?>
+    <?= /* @noEscape */ $block->getRuleDate(3); echo '<br>';?>
+<?php endif; ?>
+<?php if ($block->getNearestDate($block->getNearestCatalogRuleDate(2, 3))):?>
+    <?= /* @noEscape */ $block->escapeHtmlAttr(__('Remaining time: '));  ?>
+    <?= /* @noEscape */ $block->getNearestDate($block->getNearestCatalogRuleDate(2, 3)); echo '<br>';?>
+<?php endif; ?>
+<div id="getting-started"></div>
+<script type="text/javascript">
+    require([
+        'jquery',
+        'countdown'
+    ], function(
+        $, countdown
+    ) {
+        jQuery("#getting-started")
+            .countdown("<?php echo $block->getNearestDate($block->getNearestCatalogRuleDate(2, 3)); ?>", function(event) {
+                jQuery(this).text(
+                    event.strftime('%D Days %H:%M:%S')
+                );
+            });
+    });
+</script>
