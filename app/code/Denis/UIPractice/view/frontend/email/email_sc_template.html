@@ -1,0 +1,12 @@
+{{template config_path="design/email/header_template"}}
+    {{trans "Dear, %scName. Thank you for contacting." scName=$scName}}
+    {{trans "We have received your request #%scID (%scDate):" scID=$scID, scDate=$scDate}}
+    {{trans "%scComment" scComment=$scComment}}
+    {{trans "Our support team has reviewed your request and responded as follows:"}}
+    {{trans "%scAnswer" scAnswer=$scAnswer}}
+    {{trans "%answerDate" answerDate=$answerDate}}
+    {{trans "Sincerely,
+    Perspective Studio Support
+    
+    We work for you around the clock!"}}
+{{template config_path="design/email/footer_template"}}

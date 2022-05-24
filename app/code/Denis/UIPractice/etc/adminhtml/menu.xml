@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Denis_UIPractice::view" title="Seller Consultation" module="Denis_UIPractice" sortOrder="50" resource="Denis_UIPractice::view"/>
+        <add id="Denis_UIPractice::menu" title="Customer questions table" module="Denis_UIPractice" sortOrder="20" parent="Denis_UIPractice::view" action="uipractice/index/index" resource="Denis_UIPractice::menu"/>
+    </menu>
+</config>

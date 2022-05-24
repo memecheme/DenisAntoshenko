@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+   <argument name="data" xsi:type="array">
+      <item name="js_config" xsi:type="array">
+         <item name="provider" xsi:type="string">denis_uipractice_sc_listing.denis_uipractie_sc_listing_data_source</item>
+         <item name="deps" xsi:type="string">denis_uipractice_sc_listing.denis_uipractice_sc_listing_data_source</item>
+      </item>
+      <item name="spinner" xsi:type="string">uipractice_sc_columns</item>
+   </argument>
+   <dataSource name="denis_uipractice_sc_listing_data_source">
+      <argument name="dataProvider" xsi:type="configurableObject">
+         <argument name="class" xsi:type="string">DenisUIPracticeSCFilterPool</argument>
+         <argument name="name" xsi:type="string">denis_uipractice_sc_listing_data_source</argument>
+         <argument name="primaryFieldName" xsi:type="string">id</argument>
+         <argument name="requestFieldName" xsi:type="string">id</argument>
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+               <item name="update_url" xsi:type="url" path="mui/index/render" />
+               <item name="storageConfig" xsi:type="array">
+                  <item name="cacheRequests" xsi:type="boolean">false</item>
+               </item>
+            </item>
+         </argument>
+      </argument>
+      <argument name="data" xsi:type="array">
+         <item name="js_config" xsi:type="array">
+            <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+         </item>
+      </argument>
+   </dataSource>
+   <container name="listing_top">
+      <argument name="data" xsi:type="array">
+         <item name="config" xsi:type="array">
+            <item name="template" xsi:type="string">ui/grid/toolbar</item>
+            <item name="stickyTmpl" xsi:type="string">ui/grid/sticky/toolbar</item>
+         </item>
+      </argument>
+      <filterSearch name="fulltext">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="provider" xsi:type="string">denis_uipractice_sc_listing.denis_uipractice_sc_listing_data_source</item>
+               <item name="chipsProvider" xsi:type="string">denis_uipractice_sc_listing.denis_uipractice_sc_listing.listing_top.listing_filters_chips</item>
+               <item name="storageConfig" xsi:type="array">
+                  <item name="provider" xsi:type="string">denis_uipractice_sc_listing.denis_uipractice_sc_listing.listing_top.bookmarks</item>
+                  <item name="namespace" xsi:type="string">current.search</item>
+               </item>
+            </item>
+         </argument>
+      </filterSearch>
+      <paging name="listing_paging">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="storageConfig" xsi:type="array">
+                  <item name="provider" xsi:type="string">denis_uipractice_sc_listing.denis_uipractice_sc_listing.listing_top.bookmarks</item>
+                  <item name="namespace" xsi:type="string">current.paging</item>
+               </item>
+               <item name="selectProvider" xsi:type="string">denis_uipractice_sc_listing.denis_uipractice_sc_listing.uipractice_sc_columns.ids</item>
+            </item>
+         </argument>
+      </paging>
+   </container>
+   <columns name="uipractice_sc_columns">
+      <argument name="data" xsi:type="array">
+         <item name="config" xsi:type="array">
+            <item name="storageConfig" xsi:type="array">
+               <item name="provider" xsi:type="string">denis_uipractice_sc_listing.denis_uipractice_sc_listing.listing_top.bookmarks</item>
+               <item name="namespace" xsi:type="string">current</item>
+            </item>
+            <item name="childDefaults" xsi:type="array">
+               <item name="fieldAction" xsi:type="array">
+                  <item name="provider" xsi:type="string">denis_uipractice_sc_listing.denis_uipractice_sc_listing.uipractice_sc_columns</item>
+                  <item name="target" xsi:type="string">startEdit</item>
+                  <item name="params" xsi:type="array">
+                     <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+                     <item name="1" xsi:type="boolean">true</item>
+                  </item>
+               </item>
+               <item name="storageConfig" xsi:type="array">
+                  <item name="provider" xsi:type="string">denis_uipractice_sc_listing.denis_uipractice_sc_listing.listing_top.bookmarks</item>
+                  <item name="root" xsi:type="string">columns.${ $.index }</item>
+                  <item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>
+               </item>
+            </item>
+         </item>
+      </argument>
+      <column name="id">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="filter" xsi:type="string">textRange</item>
+               <item name="sorting" xsi:type="string">asc</item>
+               <item name="label" xsi:type="string" translate="true">ID</item>
+               <item name="sortOrder" xsi:type="number">20</item>
+            </item>
+         </argument>
+      </column>
+      <column name="name">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="filter" xsi:type="string">text</item>
+               <item name="label" xsi:type="string" translate="true">Customer Name</item>
+               <item name="sortOrder" xsi:type="number">30</item>
+            </item>
+         </argument>
+      </column>
+      <column name="email">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="filter" xsi:type="string">text</item>
+               <item name="label" xsi:type="string" translate="true">Customer Email</item>
+               <item name="sortOrder" xsi:type="number">30</item>
+            </item>
+         </argument>
+      </column>
+      <column name="phone">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="filter" xsi:type="string">text</item>
+               <item name="label" xsi:type="string" translate="true">Customer Phone</item>
+               <item name="sortOrder" xsi:type="number">30</item>
+            </item>
+         </argument>
+      </column>
+      <column name="date">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="filter" xsi:type="string">text</item>
+               <item name="label" xsi:type="string" translate="true">Date</item>
+               <item name="sortOrder" xsi:type="number">30</item>
+            </item>
+         </argument>
+      </column>
+      <column name="status">
+         <argument name="data" xsi:type="array">
+            <item name="options" xsi:type="array">
+               <item name="0" xsi:type="array">
+                  <item name="label" xsi:type="string">New</item>
+                  <item name="value" xsi:type="string">0</item>
+               </item>
+               <item name="1" xsi:type="array">
+                  <item name="label" xsi:type="string">Processing</item>
+                  <item name="value" xsi:type="string">1</item>
+               </item>
+               <item name="2" xsi:type="array">
+                  <item name="label" xsi:type="string">Complete</item>
+                  <item name="value" xsi:type="string">2</item>
+               </item>
+            </item>
+            <item name="config" xsi:type="array">
+               <item name="editor" xsi:type="string">select</item>
+               <item name="filter" xsi:type="string">select</item>
+               <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+               <item name="dataType" xsi:type="string">select</item>
+               <item name="label" xsi:type="string" translate="true">Status</item>
+            </item>
+         </argument>
+      </column>
+      <actionsColumn name="actions" class="Denis\UIPractice\Ui\Component\Listing\Column\SCActions">
+         <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+               <item name="resizeEnabled" xsi:type="boolean">false</item>
+               <item name="resizeDefaultWidth" xsi:type="string">107</item>
+               <item name="indexField" xsi:type="string">id</item>
+               <item name="sortOrder" xsi:type="number">180</item>
+            </item>
+         </argument>
+      </actionsColumn>
+   </columns>
+</listing>
